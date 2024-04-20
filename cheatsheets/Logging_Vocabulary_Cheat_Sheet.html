@@ -101,7 +101,7 @@ redirect_from: "/cheatsheets/Application_Logging_Vocabulary_Cheat_Sheet.html"
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-header__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
       
-  <img src="../assets/OWASP_Logo_Transp.png" alt="logo">
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -141,7 +141,7 @@ redirect_from: "/cheatsheets/Application_Logging_Vocabulary_Cheat_Sheet.html"
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -230,7 +230,7 @@ redirect_from: "/cheatsheets/Application_Logging_Vocabulary_Cheat_Sheet.html"
   <label class="md-nav__title" for="__drawer">
     <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
       
-  <img src="../assets/OWASP_Logo_Transp.png" alt="logo">
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
 
     </a>
     OWASP Cheat Sheet Series
@@ -374,7 +374,9 @@ redirect_from: "/cheatsheets/Application_Logging_Vocabulary_Cheat_Sheet.html"
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
@@ -2579,6 +2581,26 @@ redirect_from: "/cheatsheets/Application_Logging_Vocabulary_Cheat_Sheet.html"
   
   
     <li class="md-nav__item">
+      <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transport Layer Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
@@ -3379,35 +3401,29 @@ redirect_from: "/cheatsheets/Application_Logging_Vocabulary_Cheat_Sheet.html"
 <h3 id="identifying-events">Identifying Events<a class="headerlink" href="#identifying-events" title="Permanent link">&para;</a></h3>
 <p>In order to better understand security event logging a good high-level understanding of threat modeling would be helpful, even if it's a simple approach of:</p>
 <ol>
-<li>
-<p><strong>What could go wrong?</strong></p>
-</li>
-<li>
-<p>Orders: could someone order on behalf of another?</p>
-</li>
+<li><strong>What could go wrong?</strong></li>
+</ol>
+<ul>
+<li>Orders: could someone order on behalf of another?</li>
 <li>Authentication: could I log in as someone else?</li>
-<li>
-<p>Authorization: could I see someone else' account?</p>
-</li>
-<li>
-<p><strong>What would happen if it did?</strong></p>
-</li>
-<li>
-<p>Orders: I've placed an order on behalf of another... to an abandoned warehouse in New Jersey. Oops.</p>
-</li>
+<li>Authorization: could I see someone else' account?</li>
+</ul>
+<ol start="2">
+<li><strong>What would happen if it did?</strong></li>
+</ol>
+<ul>
+<li>Orders: I've placed an order on behalf of another... to an abandoned warehouse in New Jersey. Oops.</li>
 <li>Then I bragged about it on 4Chan.</li>
-<li>
-<p>Then I told the New York Times about it.</p>
-</li>
-<li>
-<p><strong>Who might intend to do this?</strong></p>
-</li>
-<li>
-<p>Intentional attacks by hackers.</p>
-</li>
+<li>Then I told the New York Times about it.</li>
+</ul>
+<ol start="3">
+<li><strong>Who might intend to do this?</strong></li>
+</ol>
+<ul>
+<li>Intentional attacks by hackers.</li>
 <li>An employee "testing" how things work.</li>
 <li>An API coded incorrectly doing things the author did not intend.</li>
-</ol>
+</ul>
 <h2 id="format">Format<a class="headerlink" href="#format" title="Permanent link">&para;</a></h2>
 <p><em>NOTE: All dates should be logged in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format <strong>WITH</strong> UTC offset to ensure maximum portability</em></p>
 <div class="highlight"><pre><span></span><code>{
@@ -3545,7 +3561,7 @@ INFO</p>
 <div class="highlight"><pre><span></span><code>{
     &quot;datetime&quot;: &quot;2019-01-01 00:00:00,000&quot;,
     &quot;appid&quot;: &quot;foobar.netportal_auth&quot;,
-    &quot;event&quot;: &quot;authn_password_change:joebob1&quot;,
+    &quot;event&quot;: &quot;authn_password_change_fail:joebob1&quot;,
     &quot;level&quot;: &quot;INFO&quot;,
     &quot;description&quot;: &quot;User joebob1 failed to changing their password&quot;,
     ...
@@ -3669,7 +3685,7 @@ All activity by privileged users such as admin should be recorded.</p>
     &quot;appid&quot;: &quot;foobar.netportal_auth&quot;,
     &quot;event&quot;: &quot;authz_admin:joebob1,user_privilege_change&quot;,
     &quot;level&quot;: &quot;WARN&quot;,
-    &quot;description&quot;: &quot;Administrtator joebob1 has updated privileges of user foobarapi from user to admin&quot;,
+    &quot;description&quot;: &quot;Administrator joebob1 has updated privileges of user foobarapi from user to admin&quot;,
     ...
 }
 </code></pre></div>
@@ -4208,7 +4224,7 @@ WARN</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      ©Copyright <script>document.write(new Date().getFullYear())</script> - CheatSheets Series Team - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+      ©Copyright <script>document.write(new Date().getFullYear())</script> - Cheat Sheets Series Team - This work is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>.
     </div>
   
   
@@ -4228,7 +4244,7 @@ WARN</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>

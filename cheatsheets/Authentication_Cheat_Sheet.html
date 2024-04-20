@@ -97,7 +97,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-header__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
       
-  <img src="../assets/OWASP_Logo_Transp.png" alt="logo">
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -137,7 +137,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -226,7 +226,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
       
-  <img src="../assets/OWASP_Logo_Transp.png" alt="logo">
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
 
     </a>
     OWASP Cheat Sheet Series
@@ -370,7 +370,9 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
@@ -547,18 +549,12 @@
     User IDs
   </a>
   
-    <nav class="md-nav" aria-label="User IDs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#email-address-as-a-user-id" class="md-nav__link">
-    Email address as a User ID
-  </a>
-  
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#usernames" class="md-nav__link">
+    Usernames
+  </a>
   
 </li>
         
@@ -2381,6 +2377,26 @@
   
   
     <li class="md-nav__item">
+      <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transport Layer Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
@@ -2628,18 +2644,12 @@
     User IDs
   </a>
   
-    <nav class="md-nav" aria-label="User IDs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#email-address-as-a-user-id" class="md-nav__link">
-    Email address as a User ID
-  </a>
-  
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#usernames" class="md-nav__link">
+    Usernames
+  </a>
   
 </li>
         
@@ -2967,16 +2977,19 @@
 
 <h1 id="authentication-cheat-sheet">Authentication Cheat Sheet<a class="headerlink" href="#authentication-cheat-sheet" title="Permanent link">&para;</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p><strong>Authentication</strong> is the process of verifying that an individual, entity, or website is who/what it claims to be. Authentication in the context of web applications is commonly performed by submitting a username or ID and one or more items of private information that only a given user should know.</p>
+<p><strong>Authentication</strong> (<strong>AuthN</strong>) is the process of verifying that an individual, entity, or website is who or what it claims to be by determining the validity of one or more authenticators (like passwords, fingerprints, or security tokens) that are used to back up this claim.</p>
+<p><strong>Digital Identity</strong> is the unique representation of a subject engaged in an online transaction. A digital identity is always unique in the context of a digital service but does not necessarily need to be traceable back to a specific real-life subject.</p>
+<p><strong>Identity Proofing</strong> establishes that a subject is actually who they claim to be. This concept is related to KYC concepts and it aims to bind a digital identity with a real person.</p>
 <p><strong>Session Management</strong> is a process by which a server maintains the state of an entity interacting with it. This is required for a server to remember how to react to subsequent requests throughout a transaction. Sessions are maintained on the server by a session identifier which can be passed back and forth between the client and server when transmitting and receiving requests. Sessions should be unique per user and computationally very difficult to predict. The <a href="Session_Management_Cheat_Sheet.html">Session Management Cheat Sheet</a> contains further guidance on the best practices in this area.</p>
 <h2 id="authentication-general-guidelines">Authentication General Guidelines<a class="headerlink" href="#authentication-general-guidelines" title="Permanent link">&para;</a></h2>
 <h3 id="user-ids">User IDs<a class="headerlink" href="#user-ids" title="Permanent link">&para;</a></h3>
-<p>Make sure your usernames/user IDs are case-insensitive. User 'smith' and user 'Smith' should be the same user. Usernames should also be unique. For high-security applications, usernames could be assigned and secret instead of user-defined public data.</p>
-<h4 id="email-address-as-a-user-id">Email address as a User ID<a class="headerlink" href="#email-address-as-a-user-id" title="Permanent link">&para;</a></h4>
-<p>For information on validating email addresses, please visit the <a href="Input_Validation_Cheat_Sheet.html#email-address-validation">input validation cheatsheet email discussion</a>.</p>
+<p>The primary function of a User ID is to uniquely identify a user within a system. Ideally, User IDs should be randomly generated to prevent the creation of predictable or sequential IDs, which could pose a security risk, especially in systems where User IDs might be exposed or inferred from external sources.</p>
+<h3 id="usernames">Usernames<a class="headerlink" href="#usernames" title="Permanent link">&para;</a></h3>
+<p>Usernames are easy-to-remember identifiers chosen by the user and used for identifying themselves when logging into a system or service. The terms User ID and username might be used interchangeably if the username chosen by the user also serves as their unique identifier within the system.</p>
+<p>Users should be permitted to use their email address as a username, provided the email is verified during signup. Additionally, they should have the option to choose a username other than an email address. For information on validating email addresses, please visit the <a href="Input_Validation_Cheat_Sheet.html#email-address-validation">input validation cheatsheet email discussion</a>.</p>
 <h3 id="authentication-solution-and-sensitive-accounts">Authentication Solution and Sensitive Accounts<a class="headerlink" href="#authentication-solution-and-sensitive-accounts" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Do <strong>NOT</strong> allow login with sensitive accounts (i.e. accounts that can be used internally within the solution such as to a back-end / middle-ware / DB) to any front-end user-interface</li>
+<li>Do <strong>NOT</strong> allow login with sensitive accounts (i.e. accounts that can be used internally within the solution such as to a back-end / middle-ware / DB) to any front-end user interface</li>
 <li>Do <strong>NOT</strong> use the same authentication solution (e.g. IDP / AD) used internally for unsecured access (e.g. public access / DMZ)</li>
 </ul>
 <h3 id="implement-proper-password-strength-controls">Implement Proper Password Strength Controls<a class="headerlink" href="#implement-proper-password-strength-controls" title="Permanent link">&para;</a></h3>
@@ -2984,7 +2997,7 @@
 <ul>
 <li>Password Length<ul>
 <li><strong>Minimum</strong> length of the passwords should be <strong>enforced</strong> by the application. Passwords <strong>shorter than 8 characters</strong> are considered to be weak (<a href="https://pages.nist.gov/800-63-3/sp800-63b.html">NIST SP800-63B</a>).</li>
-<li><strong>Maximum</strong> password length should not be set <strong>too low</strong>, as it will prevent users from creating passphrases. A common maximum length is 64 characters due to limitations in certain hashing algorithms, as discussed in the <a href="Password_Storage_Cheat_Sheet.html#maximum-password-lengths">Password Storage Cheat Sheet</a>. It is important to set a maximum password length to prevent <a href="https://www.acunetix.com/vulnerabilities/web/long-password-denial-of-service/">long password Denial of Service attacks</a>.</li>
+<li><strong>Maximum</strong> password length should be <strong>at least 64 characters</strong> to allow passphrases (<a href="https://pages.nist.gov/800-63-3/sp800-63b.html">NIST SP800-63B</a>). Note that certain implementations of hashing algorithms may cause <a href="https://www.acunetix.com/vulnerabilities/web/long-password-denial-of-service/">long password denial of service</a>.</li>
 </ul>
 </li>
 <li>Do not silently truncate passwords. The <a href="Password_Storage_Cheat_Sheet.html#maximum-password-lengths">Password Storage Cheat Sheet</a> provides further guidance on how to handle passwords that are longer than the maximum length.</li>
@@ -3019,7 +3032,7 @@
 <li>Current password verification. This is to ensure that it's the legitimate user who is changing the password. The abuse case is this: a legitimate user is using a public computer to log in. This user forgets to log out. Then another person is using this public computer. If we don't verify the current password, this other person may be able to change the password.</li>
 </ul>
 <h3 id="transmit-passwords-only-over-tls-or-other-strong-transport">Transmit Passwords Only Over TLS or Other Strong Transport<a class="headerlink" href="#transmit-passwords-only-over-tls-or-other-strong-transport" title="Permanent link">&para;</a></h3>
-<p>See: <a href="Transport_Layer_Protection_Cheat_Sheet.html">Transport Layer Protection Cheat Sheet</a></p>
+<p>See: <a href="Transport_Layer_Security_Cheat_Sheet.html">Transport Layer Security Cheat Sheet</a></p>
 <p>The login page and all subsequent authenticated pages must be exclusively accessed over TLS or other strong transport. Failure to utilize TLS or other strong transport for the login page allows an attacker to modify the login form action, causing the user's credentials to be posted to an arbitrary location. Failure to utilize TLS or other strong transport for authenticated pages after login enables an attacker to view the unencrypted session ID and compromise the user's authenticated session.</p>
 <h3 id="require-re-authentication-for-sensitive-features">Require Re-authentication for Sensitive Features<a class="headerlink" href="#require-re-authentication-for-sensitive-features" title="Permanent link">&para;</a></h3>
 <p>In order to mitigate CSRF and session hijacking, it's important to require the current credentials for an account before updating sensitive account information such as the user's password or email address -- or before sensitive transactions, such as shipping a purchase to a new address. Without this countermeasure, an attacker may be able to execute sensitive transactions through a CSRF or XSS attack without needing to know the user's current credentials. Additionally, an attacker may get temporary physical access to a user's browser or steal their session ID to take over the user's session.</p>
@@ -3199,7 +3212,7 @@ ENDIF
 <ul>
 <li>Use standard HTML forms for username and password input with appropriate <code>type</code> attributes.</li>
 <li>Avoid plugin-based login pages (such as Flash or Silverlight).</li>
-<li>Implement a reasonable maximum password length, such as 64 characters, as discussed in the <a href="Password_Storage_Cheat_Sheet.html#maximum-password-lengths">Password Storage Cheat Sheet</a>.</li>
+<li>Implement a reasonable maximum password length, at least 64 characters, as discussed in the <a href="#implement-proper-password-strength-controls">Implement Proper Password Strength Controls section</a>.</li>
 <li>Allow any printable characters to be used in passwords.</li>
 <li>Allow users to paste into the username, password, and MFA fields.</li>
 <li>Allow users to navigate between the username and password field with a single press of the <code>Tab</code> key.</li>
@@ -3283,7 +3296,7 @@ ENDIF
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      ©Copyright <script>document.write(new Date().getFullYear())</script> - CheatSheets Series Team - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+      ©Copyright <script>document.write(new Date().getFullYear())</script> - Cheat Sheets Series Team - This work is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>.
     </div>
   
   
@@ -3303,7 +3316,7 @@ ENDIF
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>

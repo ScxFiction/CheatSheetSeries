@@ -97,7 +97,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-header__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
       
-  <img src="../assets/OWASP_Logo_Transp.png" alt="logo">
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -137,7 +137,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -226,7 +226,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
       
-  <img src="../assets/OWASP_Logo_Transp.png" alt="logo">
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
 
     </a>
     OWASP Cheat Sheet Series
@@ -370,7 +370,9 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
@@ -812,6 +814,26 @@
           <li class="md-nav__item">
   <a href="#naive-double-submit-cookie-pattern-discouraged" class="md-nav__link">
     Naive Double-Submit Cookie Pattern (DISCOURAGED)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disallowing-non-simple-requests" class="md-nav__link">
+    Disallowing non-simple requests
+  </a>
+  
+    <nav class="md-nav" aria-label="Disallowing non-simple requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disallowing-simple-content-types" class="md-nav__link">
+    Disallowing simple content types
   </a>
   
 </li>
@@ -2359,6 +2381,26 @@
   
   
     <li class="md-nav__item">
+      <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transport Layer Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
@@ -2675,6 +2717,26 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disallowing-non-simple-requests" class="md-nav__link">
+    Disallowing non-simple requests
+  </a>
+  
+    <nav class="md-nav" aria-label="Disallowing non-simple requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disallowing-simple-content-types" class="md-nav__link">
+    Disallowing simple content types
+  </a>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#employing-custom-request-headers-for-ajaxapi" class="md-nav__link">
     Employing Custom Request Headers for AJAX/API
@@ -2974,9 +3036,11 @@
 <h5 id="employing-hmac-csrf-tokens">Employing HMAC CSRF Tokens<a class="headerlink" href="#employing-hmac-csrf-tokens" title="Permanent link">&para;</a></h5>
 <p>To generate HMAC CSRF tokens (with a session-dependent user value), the system must have:</p>
 <ul>
-<li><strong>A session-dependent value that changes with each login session</strong>. This value should only be valid for the entirety of the users authenticated session. Avoid using static values like the user's email or ID, as they are not secure (<a href="https://stackoverflow.com/a/8656417">1</a> | <a href="https://stackoverflow.com/a/30539335">2</a> | <a href="https://security.stackexchange.com/a/22936">3</a>). It's worth noting that updating the CSRF token too frequently, such as for each request, is a misconception that assumes it adds substantial security while actually harming the user experience (<a href="https://security.stackexchange.com/a/22936">1</a>). For example, you could choose one of the following session-dependent values:</li>
+<li><strong>A session-dependent value that changes with each login session</strong>. This value should only be valid for the entirety of the users authenticated session. Avoid using static values like the user's email or ID, as they are not secure (<a href="https://stackoverflow.com/a/8656417">1</a> | <a href="https://stackoverflow.com/a/30539335">2</a> | <a href="https://security.stackexchange.com/a/22936">3</a>). It's worth noting that updating the CSRF token too frequently, such as for each request, is a misconception that assumes it adds substantial security while actually harming the user experience (<a href="https://security.stackexchange.com/a/22936">1</a>). For example, you could choose one of the following session-dependent values:<ul>
 <li>The server-side session ID (e.g. <a href="https://www.php.net/manual/en/function.session-start.php">PHP</a> or <a href="https://learn.microsoft.com/en-us/previous-versions/aspnet/ms178581(v=vs.100)">ASP.NET</a>).</li>
 <li>A random value (e.g. UUID) within a JWT that changes every time a JWT is created.</li>
+</ul>
+</li>
 <li><strong>A secret cryptographic key</strong> Not to confuse with the random value from the naive implementation. This value is used to generate the HMAC hash. Ideally, store this key as an environment variable.</li>
 <li><strong>A random value for anti-collision purposes</strong>. Generate a random value (preferably cryptographically random) to ensure that consecutive calls within the same second do not produce the same hash (<a href="https://github.com/data-govt-nz/ckanext-security/issues/23#issuecomment-479752531">1</a>).</li>
 </ul>
@@ -2995,14 +3059,22 @@ hmac = hmac(&quot;SHA256&quot;, secret, message) // Generate the HMAC hash
 csrfToken = hmac + &quot;.&quot; + message // Combine HMAC hash with message to generate the token. The plain message is required to later authenticate it against its HMAC hash
 
 // Store the CSRF Token in a cookie
-response.setCookie(&quot;csrf_token=&quot; + csrfToken + &quot;; Secure) // Set Cookie without HttpOnly flag
+response.setCookie(&quot;csrf_token=&quot; + csrfToken + &quot;; Secure&quot;) // Set Cookie without HttpOnly flag
 </code></pre></div>
 <h3 id="naive-double-submit-cookie-pattern-discouraged">Naive Double-Submit Cookie Pattern (DISCOURAGED)<a class="headerlink" href="#naive-double-submit-cookie-pattern-discouraged" title="Permanent link">&para;</a></h3>
 <p>The <em>Naive Double-Submit Cookie</em> method is a scalable and easy-to-implement technique which uses a cryptographically strong random value as a cookie and as a request parameter (even before user authentication). Then the server verifies if the cookie value and request value match. The site must require that every transaction request from the user includes this random value as a hidden form value or inside the request header. If the value matches at server side, the server accepts it as a legitimate request and if they don't, it rejects the request.</p>
 <p>Since an attacker is unable to access the cookie value during a cross-site request, they cannot include a matching value in the hidden form value or as a request parameter/header.</p>
 <p>Though the Naive Double-Submit Cookie method is a good initial step to counter CSRF, it still remains vulnerable to certain attacks. <a href="https://owasp.org/www-chapter-london/assets/slides/David_Johansson-Double_Defeat_of_Double-Submit_Cookie.pdf">This resource</a> provides more information on some vulnerabilities. Thus, we strongly recommend that you use the <em>Signed Double-Submit Cookie</em> pattern.</p>
+<h2 id="disallowing-non-simple-requests">Disallowing non-simple requests<a class="headerlink" href="#disallowing-non-simple-requests" title="Permanent link">&para;</a></h2>
+<p>When a <code>&lt;form&gt;</code> tag is used to submit data, it sends a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests">"simple" request</a> that browsers do not designate as "to be preflighted". These "simple" requests introduce risk of CSRF because browsers permit them to be sent to any origin. If your application uses <code>&lt;form&gt;</code> tags to submit data anywhere in your client, you will still need to protect them with alternate approaches described in this document such as tokens.</p>
+<blockquote>
+<p><strong>Caveat:</strong>
+Should a browser bug allow custom HTTP headers, or not enforce preflight on non-simple content types, it could compromise your security. Although unlikely, it is prudent to consider this in your threat model. Implementing CSRF tokens adds additional layer of defence and gives developers more control over security of the application.</p>
+</blockquote>
+<h3 id="disallowing-simple-content-types">Disallowing simple content types<a class="headerlink" href="#disallowing-simple-content-types" title="Permanent link">&para;</a></h3>
+<p>For a request to be deemed simple, it must have one of the following content types - <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code> or <code>text/plain</code>.  Many modern web applications use JSON APIs so would naturally require CORS, however they may accept <code>text/plain</code> which would be vulnerable to CSRF. Therefore a simple mitigation is for the server or API to disallow these simple content types.</p>
 <h3 id="employing-custom-request-headers-for-ajaxapi">Employing Custom Request Headers for AJAX/API<a class="headerlink" href="#employing-custom-request-headers-for-ajaxapi" title="Permanent link">&para;</a></h3>
-<p>Both the synchronizer token and the double-submit cookie are used to prevent forgery of form data, but they can be tricky to implement and degrade usability. Many modern web applications do not use <code>&lt;form&gt;</code> tags. A user-friendly defense that is particularly well suited for AJAX or API endpoints is the use of a <strong>custom request header</strong>. No token is needed for this approach.</p>
+<p>Both the synchronizer token and the double-submit cookie are used to prevent forgery of form data, but they can be tricky to implement and degrade usability. Many modern web applications do not use <code>&lt;form&gt;</code> tags to submit data. A user-friendly defense that is particularly well suited for AJAX or API endpoints is the use of a <strong>custom request header</strong>. No token is needed for this approach.</p>
 <p>In this pattern, the client appends a custom header to requests that require CSRF protection. The header can be any arbitrary key-value pair, as long as it does not conflict with existing headers.</p>
 <div class="highlight"><pre><span></span><code>X-YOURSITE-CSRF-PROTECTION=1
 </code></pre></div>
@@ -3011,10 +3083,9 @@ response.setCookie(&quot;csrf_token=&quot; + csrfToken + &quot;; Secure) // Set 
 <li>UI changes are not required</li>
 <li>no server state is introduced to track tokens</li>
 </ul>
-<p>If you use <code>&lt;form&gt;</code> tags anywhere in your client, you will still need to protect them with alternate approaches described in this document such as tokens.</p>
-<p>This defense relies on the browser's <a href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin policy (SOP)</a> restriction that only JavaScript can be used to add a custom header, and only within its origin. By default, browsers do not allow JavaScript to make cross origin requests with custom headers. Only JavaScript that you serve from your origin can add these headers.</p>
+<p>This defense relies on the CORS preflight mechanism which sends an <code>OPTIONS</code> request to verify CORS compliance with the destination server. All modern browsers designate requests with custom headers as "to be preflighted". When the API verifies that the custom header is there, you know that the request must have been preflighted if it came from a browser.</p>
 <h4 id="custom-headers-and-cors">Custom Headers and CORS<a class="headerlink" href="#custom-headers-and-cors" title="Permanent link">&para;</a></h4>
-<p>Cookies are not set on cross-origin requests (CORS) by default. To enable cookies on an API, you will set <code>Access-Control-Allow-Credentials=true</code>. The browser will reject any response that includes <code>Access-Control-Allow-Origin=*</code> if credentials are allowed. To allow CORS requests, but protect against CSRF, you need to make sure the server only whitelists a few select origins that you definitively control via the <code>Access-Control-Allow-Origin</code> header. Any cross-origin request from an allowed domain will be able to set custom headers.</p>
+<p>Cookies are not set on cross-origin requests (CORS) by default. To enable cookies on an API, you will set <code>Access-Control-Allow-Credentials=true</code>. The browser will reject any response that includes <code>Access-Control-Allow-Origin=*</code> if credentials are allowed. To allow CORS requests, but protect against CSRF, you need to make sure the server only allows a few select origins that you definitively control via the <code>Access-Control-Allow-Origin</code> header. Any cross-origin request from an allowed domain will be able to set custom headers.</p>
 <p>As an example, you might configure your backend to allow CORS with cookies from <code>http://www.yoursite.com</code> and <code>http://mobile.yoursite.com</code>, so that the only possible preflight responses are:</p>
 <div class="highlight"><pre><span></span><code>Access-Control-Allow-Origin=http://mobile.yoursite.com
 Access-Control-Allow-Credentials=true
@@ -3028,7 +3099,7 @@ Access-Control-Allow-Credentials=true
 <p><a href="https://soheilkhodayari.github.io/same-site-wiki/docs/attacks/csrf.html#client-side-csrf">Client-side CSRF</a> is a new variant of CSRF attacks where the attacker tricks the client-side JavaScript code to send a forged HTTP request to a vulnerable target site by manipulating the program’s input parameters. Client-side CSRF originates when the JavaScript program uses attacker-controlled inputs, such as the URL, for the generation of asynchronous HTTP requests.</p>
 <p><strong>Note:</strong> These variants of CSRF are particularly important as they can bypass some of the common anti-CSRF countermeasures like <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#token-based-mitigation">token-based mitigations</a> and <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#samesite-cookie-attribute">SameSite cookies</a>. For example, when <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#synchronizer-token-pattern">synchronizer tokens</a> or <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#use-of-custom-request-headers">custom HTTP request headers</a> are used, the JavaScript program will include them in the asynchronous requests. Also, web browsers will include cookies in same-site request contexts initiated by JavaScript programs, circumventing the <a href="https://soheilkhodayari.github.io/same-site-wiki/docs/policies/overview.html">SameSite cookie policies</a>.</p>
 <p><strong>Client-Side vs. Classical CSRF:</strong> In the classical CSRF model, the server-side program is the most vulnerable component, because it cannot distinguish whether the incoming authenticated request was performed <strong>intentionally</strong>, also known as the confused deputy problem. In the client-side CSR model, the most vulnerable component is the client-side JavaScript program because an attacker can use it to generate arbitrary asynchronous requests by manipulating the request endpoint and/or its parameters. Client-side CSRF is due to an input validation problem and it reintroduces the confused deputy flaw, that is, the server-side won't, again, be able to distinguish if the request was performed intentionally or not.</p>
-<p>For more information about client-side CSRF vulnerabilities, see Sections 2 and 5 of this <a href="https://www.usenix.org/system/files/sec21-khodayari.pdf">paper</a>, the <a href="https://soheilkhodayari.github.io/same-site-wiki/docs/attacks/csrf.html">CSRF chapter</a> of the <a href="https://soheilkhodayari.github.io/same-site-wiki">SameSite wiki</a>, and <a href="https://www.facebook.com/notes/facebook-bug-bounty/client-side-csrf/2056804174333798/">this post</a> by the <a href="https://www.facebook.com/whitehat">Facebook Whitehat program</a>.</p>
+<p>For more information about client-side CSRF vulnerabilities, see Sections 2 and 5 of this <a href="https://www.usenix.org/system/files/sec21-khodayari.pdf">paper</a>, the <a href="https://soheilkhodayari.github.io/same-site-wiki/docs/attacks/csrf.html">CSRF chapter</a> of the <a href="https://soheilkhodayari.github.io/same-site-wiki">SameSite wiki</a>, and <a href="https://www.facebook.com/notes/facebook-bug-bounty/client-side-csrf/2056804174333798/">this post</a> by the <a href="https://www.facebook.com/whitehat">Meta Bug Bounty Program</a>.</p>
 <h3 id="client-side-csrf-example">Client-side CSRF Example<a class="headerlink" href="#client-side-csrf-example" title="Permanent link">&para;</a></h3>
 <p>The following code snippet demonstrates a simple example of a client-side CSRF vulnerability.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
@@ -3062,11 +3133,11 @@ Access-Control-Allow-Credentials=true
 <span class="w"> </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <p><strong>Vulnerability:</strong> In this snippet, the program invokes a function <code>ajaxLoad()</code> upon the page load, which is responsible for loading various webpage elements. The function reads the value of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Location/hash">URL hash fragment</a> (line 4), and extracts two pieces of information from it (i.e., request method and endpoint) to generate an asynchronous HTTP request (lines 11-13). The vulnerability occurs in lines 15-22, when the JavaScript program uses URL fragments to obtain the server-side endpoint for the asynchronous HTTP request (line 15) and the request method. However, both inputs can be controlled by web attackers, who can pick the value of their choosing, and craft a malicious URL containing the attack payload.</p>
-<p><strong>Attack:</strong> Usually, attackers share a malicious URL with the victim (through elements such as spear-phishing emails) and because the malicious URL appears to be from an honest, reputable (but vulnerable) website, the user often clicks on it. Alternatively, the attackers can create an attack page to abuse browser APIs (e.g., the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> API) and trick the vulnerable JavaScript of the target page to send the HTTP request, which closely resemles the attack model of the classical CSRF attacks.</p>
-<p>For more examples of client-side CSRF, see <a href="https://www.facebook.com/notes/facebook-bug-bounty/client-side-csrf/2056804174333798/">this post</a> by the <a href="https://www.facebook.com/whitehat">Facebook Whitehat program</a> and this USENIX Security <a href="https://www.usenix.org/system/files/sec21-khodayari.pdf">paper</a>.</p>
+<p><strong>Attack:</strong> Usually, attackers share a malicious URL with the victim (through elements such as spear-phishing emails) and because the malicious URL appears to be from an honest, reputable (but vulnerable) website, the user often clicks on it. Alternatively, the attackers can create an attack page to abuse browser APIs (e.g., the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> API) and trick the vulnerable JavaScript of the target page to send the HTTP request, which closely resembles the attack model of the classical CSRF attacks.</p>
+<p>For more examples of client-side CSRF, see <a href="https://www.facebook.com/notes/facebook-bug-bounty/client-side-csrf/2056804174333798/">this post</a> by the <a href="https://www.facebook.com/whitehat">Meta Bug Bounty Program</a> and this USENIX Security <a href="https://www.usenix.org/system/files/sec21-khodayari.pdf">paper</a>.</p>
 <h3 id="client-side-csrf-mitigation-techniques">Client-side CSRF Mitigation Techniques<a class="headerlink" href="#client-side-csrf-mitigation-techniques" title="Permanent link">&para;</a></h3>
 <p><strong>Independent Requests:</strong> Client-side CSRF can be prevented when asynchronous requests cannot be generated via attacker controllable inputs, such as the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/location">URL</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/name">window name</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer">document referrer</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">postMessages</a>, to name only a few examples.</p>
-<p><strong>Input Validation:</strong> Achieving complete isolaion between inputs and request parameters may not always be possible depending on the context and functionality. In these cases, input validation checks has to be implemented. These checks should strictly assess the format and choice of the values of the request parameters and decide whether they can only be used in non-state-changing operations (e.g., only allow GET requests and endpoints starting with a predefined prefix).</p>
+<p><strong>Input Validation:</strong> Achieving complete isolation between inputs and request parameters may not always be possible depending on the context and functionality. In these cases, input validation checks has to be implemented. These checks should strictly assess the format and choice of the values of the request parameters and decide whether they can only be used in non-state-changing operations (e.g., only allow GET requests and endpoints starting with a predefined prefix).</p>
 <p><strong>Predefined Request Data:</strong> Another mitigation technique is to store a list of predefined, safe request data in the JavaScript code (e.g., combinations of endpoints, request methods and other parameters that are safe to be replayed). The program can then use a switch parameter in the URL fragment to decide which entry of the list should each JavaScript function use.</p>
 <h2 id="defense-in-depth-techniques">Defense In Depth Techniques<a class="headerlink" href="#defense-in-depth-techniques" title="Permanent link">&para;</a></h2>
 <h3 id="samesite-cookie-attribute">SameSite (Cookie Attribute)<a class="headerlink" href="#samesite-cookie-attribute" title="Permanent link">&para;</a></h3>
@@ -3079,7 +3150,7 @@ Access-Control-Allow-Credentials=true
 Set-Cookie: JSESSIONID=xxxxx; SameSite=Lax
 </code></pre></div>
 <p>All desktop browsers and almost all mobile browsers now support the <code>SameSite</code> attribute. To track the browsers implementing it and know how the attribute is used, refer to the following <a href="https://caniuse.com/#feat=same-site-cookie-attribute">service</a>. Note that Chrome has <a href="https://blog.chromium.org/2019/10/developers-get-ready-for-new.html">announced</a> that they will mark cookies as <code>SameSite=Lax</code> by default from Chrome 80 (due in February 2020), and Firefox and Edge are both planning to follow suit. Additionally, the <code>Secure</code> flag will be required for cookies that are marked as <code>SameSite=None</code>.</p>
-<p>It is important to note that this attribute should be implemented as an additional layer <em>defense in depth</em> concept. This attribute protects the user through the browsers supporting it, and it contains as well 2 ways to bypass it as mentioned in the following <a href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-02#section-5.3.7.1">section</a>. This attribute should not replace a CSRF Token. Instead, it should co-exist with that tokento protect  the user in a more robust way.</p>
+<p>It is important to note that this attribute should be implemented as an additional layer <em>defense in depth</em> concept. This attribute protects the user through the browsers supporting it, and it contains as well 2 ways to bypass it as mentioned in the following <a href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-02#section-5.3.7.1">section</a>. This attribute should not replace a CSRF Token. Instead, it should co-exist with that token to protect  the user in a more robust way.</p>
 <h3 id="using-standard-headers-to-verify-origin">Using Standard Headers to Verify Origin<a class="headerlink" href="#using-standard-headers-to-verify-origin" title="Permanent link">&para;</a></h3>
 <p>There are two steps to this mitigation method, both of which examine an HTTP request header value:</p>
 <ol>
@@ -3095,14 +3166,14 @@ Set-Cookie: JSESSIONID=xxxxx; SameSite=Lax
 <p>In both cases, make sure the target origin check is strong. For example, if your site is <code>example.org</code> make sure <code>example.org.attacker.com</code> does not pass your origin check (i.e, match through the trailing / after the origin to make sure you are matching against the entire origin).</p>
 <p>If neither of these headers are present, you can either accept or block the request. We recommend <strong>blocking</strong>. Alternatively, you might want to log all such instances, monitor their use cases/behavior, and then start blocking requests only after you get enough confidence.</p>
 <h4 id="identifying-the-target-origin">Identifying the Target Origin<a class="headerlink" href="#identifying-the-target-origin" title="Permanent link">&para;</a></h4>
-<p>Generally, it's not always easy to determine the target origin. You are not always able to simply grab the target origin (i.e., its hostname and port <code>#</code>) from the URL in the request, because the application server is frequently sitting behind one or more proxies. This means that the original URL can be different from the URL the app server actually receives. However, your application server is directly accessed by its users, then using the origin in the URL is fine and you're all set.</p>
+<p>Generally, it's not always easy to determine the target origin. You are not always able to simply grab the target origin (i.e., its hostname and port <code>#</code>) from the URL in the request, because the application server is frequently sitting behind one or more proxies. This means that the original URL can be different from the URL the app server actually receives. However, if your application server is directly accessed by its users, then using the origin in the URL is fine and you're all set.</p>
 <p>If you are behind a proxy, there are a number of options to consider.</p>
 <ul>
-<li><strong>Configure your application to simply know its target origin:</strong> Since it is your application, so you can find its target origin and set that value in some server configuration entry. This would be the most secure approach as its defined server side, so it is a trusted value. However, this might be problematic to maintain if your application is deployed in many places, e.g., dev, test, QA, production, and possibly multiple production instances. Setting the correct value for each of these situations might be difficult, but if you can do it via some central configuration and providing your instances to grab value from it, that's great! (<strong>Note:</strong> Make sure the centralized configuration store is maintained securely because major part of your CSRF defense depends on it.)</li>
+<li><strong>Configure your application to simply know its target origin:</strong> Since it is your application, you can find its target origin and set that value in some server configuration entry. This would be the most secure approach as its defined server side, so it is a trusted value. However, this might be problematic to maintain if your application is deployed in many places, e.g., dev, test, QA, production, and possibly multiple production instances. Setting the correct value for each of these situations might be difficult, but if you can do it via some central configuration and provide your instances the ability to grab the value from it, that's great! (<strong>Note:</strong> Make sure the centralized configuration store is maintained securely because major part of your CSRF defense depends on it.)</li>
 <li><strong>Use the Host header value:</strong> If you want your application to find its own target so it doesn't have to be configured for each deployed instance, we recommend using the Host family of headers. The Host header is meant to contain the target origin of the request. But, if your app server is sitting behind a proxy, the Host header value is most likely changed by the proxy to the target origin of the URL behind the proxy, which is different than the original URL. This modified Host header origin won't match the source origin in the original Origin or Referer headers.</li>
 <li><strong>Use the X-Forwarded-Host header value:</strong> To avoid the possibility that the proxy will alter the host header, you can use another header called X-Forwarded-Host to contain the original Host header value the proxy received. Most proxies will pass along the original Host header value in the X-Forwarded-Host header. So the value in X-Forwarded-Host is likely to be the target origin value that you need to compare to the source origin in the Origin or Referer header.</li>
 </ul>
-<p>Using this header value for mitigation will work properly when origin or referrer headers are present in the requests. Though these headers are included <strong>majority</strong> of the time, there are few use cases where they are not included (most of them are for legitimate reasons to safeguard users privacy/to tune to browsers ecosystem).</p>
+<p>Using this header value for mitigation will work properly when origin or referrer headers are present in the requests. Though these headers are included the <strong>majority</strong> of the time, there are few use cases where they are not included (most of them are for legitimate reasons to safeguard users privacy/to tune to browsers ecosystem).</p>
 <p><strong>Use cases where X-Forward-Host is not employed:</strong></p>
 <ul>
 <li>In an instance following a <a href="https://stackoverflow.com/questions/22397072/are-there-any-browsers-that-set-the-origin-header-to-null-for-privacy-sensitiv">302 redirect cross-origin</a>, Origin is not included in the redirected request because that may be considered sensitive information that should not be sent to the other origin.</li>
@@ -3125,13 +3196,13 @@ Set-Cookie: JSESSIONID=xxxxx; SameSite=Lax
 <ul>
 <li>~~Re-Authentication~~Authorization mechanisms (password or stronger)</li>
 <li>One-time Tokens</li>
-<li>CAPTCHA (prefer newer CAPTCHA versions without user interaction or visual pattern matching)</li>
 </ul>
+<p>Do NOT use CAPTCHA because it is specifically designed to protect against bots. It is possible, and still valid in some implementations of CAPTCHA, to obtain proof of human interaction/presence from a different user session. Although this makes the CSRF exploit more complex, it does not protect against it.</p>
 <p>While these are very strong CSRF defenses, it can create a significant impact on the user experience. As such, they would generally only be used for security critical operations (such as password changes, money transfers, etc.), alongside the other defences discussed in this cheat sheet.</p>
 <h2 id="possible-csrf-vulnerabilities-in-login-forms">Possible CSRF Vulnerabilities in Login Forms<a class="headerlink" href="#possible-csrf-vulnerabilities-in-login-forms" title="Permanent link">&para;</a></h2>
 <p>Most developers tend to ignore CSRF vulnerabilities on login forms as they assume that CSRF would not be applicable on login forms because user is not authenticated at that stage, however this assumption is not always true. CSRF vulnerabilities can still occur on login forms where the user is not authenticated, but the impact and risk is different.</p>
 <p>For example, if an attacker uses CSRF to assume an authenticated identity of a target victim on a shopping website using the attacker's account, and the victim then enters their credit card information, an attacker may be able to purchase items using the victim's stored card details. For more information about login CSRF and other risks, see section 3 of <a href="https://seclab.stanford.edu/websec/csrf/csrf.pdf">this</a> paper.</p>
-<p>Login CSRF can be mitigated by creating pre-sessions (sessions before a user is authenticated) and including tokens in login form. You can use any of the techniques mentioned above to generate tokens. Remember that pre-sessions cannot be transitioned to real sessions once the user is authenticated - the session should be destroyed and a new one should be made to avoid <a href="http://www.acrossecurity.com/papers/session_fixation.pdf">session fixation attacks</a>. This technique is described in <a href="https://seclab.stanford.edu/websec/csrf/csrf.pdf">Robust Defenses for Cross-Site Request Forgery section 4.1</a>.</p>
+<p>Login CSRF can be mitigated by creating pre-sessions (sessions before a user is authenticated) and including tokens in login form. You can use any of the techniques mentioned above to generate tokens. Remember that pre-sessions cannot be transitioned to real sessions once the user is authenticated - the session should be destroyed and a new one should be made to avoid <a href="http://www.acrossecurity.com/papers/session_fixation.pdf">session fixation attacks</a>. This technique is described in <a href="https://seclab.stanford.edu/websec/csrf/csrf.pdf">Robust Defenses for Cross-Site Request Forgery section 4.1</a>. Login CSRF can also be mitigated by including a custom request headers in AJAX request as described <a href="#employing-custom-request-headers-for-ajaxapi">above</a>.</p>
 <h2 id="reference-sample-jee-filter-demonstrating-csrf-protection">REFERENCE: Sample JEE Filter Demonstrating CSRF Protection<a class="headerlink" href="#reference-sample-jee-filter-demonstrating-csrf-protection" title="Permanent link">&para;</a></h2>
 <p>The following <a href="https://github.com/righettod/poc-csrf/blob/master/src/main/java/eu/righettod/poccsrf/filter/CSRFValidationFilter.java">JEE web filter</a> provides an example reference for some of the concepts described in this cheatsheet. It implements the following stateless mitigations (<a href="https://github.com/aramrami/OWASP-CSRFGuard">OWASP CSRFGuard</a>, cover a stateful approach).</p>
 <ul>
@@ -3266,7 +3337,7 @@ Set-Cookie: JSESSIONID=xxxxx; SameSite=Lax
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      ©Copyright <script>document.write(new Date().getFullYear())</script> - CheatSheets Series Team - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+      ©Copyright <script>document.write(new Date().getFullYear())</script> - Cheat Sheets Series Team - This work is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>.
     </div>
   
   
@@ -3286,7 +3357,7 @@ Set-Cookie: JSESSIONID=xxxxx; SameSite=Lax
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
